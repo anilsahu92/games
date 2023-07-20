@@ -1,38 +1,59 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.game-box {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.box-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  border: 2px solid;
+}
+.box-item {
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.box-item:nth-child(3n + 2) {
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  border-left: 2px solid;
+}
+.box-item:nth-child(3n + 1),
+.box-item:nth-child(3n + 3) {
+  border-bottom: 2px solid;
 }
 
-.App-link {
-  color: #61dafb;
+.box-item:nth-child(n + 7) {
+  border-bottom: 0px solid;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.user-1 {
+  background-color: rgb(250, 40, 40);
+}
+.user-2 {
+  background-color: rgb(87, 202, 87);
+}
+.userWinInfo {
+  position: absolute;
+  width: 300px;
+  background: #cbcbcb;
+  padding: 20px;
+  left: calc(50% - 170px);
+  top: 180px;
+}
+.resetBtn {
+  padding: 7px;
+  border-radius: 5px;
+  background: green;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.win-details {
+  font-weight: 600;
 }
