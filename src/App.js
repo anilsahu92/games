@@ -19,6 +19,7 @@ function App() {
 
   const [activeUser, setActiveUser] = useState(2);
   const [win, setWin] = useState(null);
+  const [gameOver, setGameOver] = useState(null);
 
   const winSet = [
     [1, 2, 3],
@@ -40,6 +41,10 @@ function App() {
         setWin(first.user);
       }
     });
+    const updatedData = data.filter((item) => item.user);
+    if (updatedData.length === 9 && win === null) {
+      setGameOver(true);
+    }
   }
 
   useEffect(() => {
@@ -51,15 +56,19 @@ function App() {
   function resetGame() {
     setData(dataSet);
     setWin(null);
+    setGameOver(null);
     setActiveUser(2);
   }
 
   return (
     <div className="App">
       <h2>TikTok Game</h2>
-      {win && (
+      {(win || gameOver) && (
         <div className="userWinInfo">
-          <div className="win-details">User {win} Win the game.</div>
+          <div className="win-details">
+            {win && "User " + win + " Win the game."}
+            {gameOver && "Game is over."}
+          </div>
           <button className="resetBtn" onClick={() => resetGame()}>
             Restart
           </button>
