@@ -44,7 +44,7 @@ export default function SnakLedder() {
             </div>
           </div>
           <div className="diseArea">
-            <Dise users={users} setUsers={setUsers} />
+            <Dise users={users} setUsers={setUsers} setPlay={setPlay} />
           </div>
         </div>
       ) : (

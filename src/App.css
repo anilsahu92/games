@@ -76,6 +76,7 @@
 
 .User {
   position: absolute;
+  transition: all 2s ease;
 }
 
 .snak-ladder-game .ts-0 {
@@ -174,4 +175,37 @@
 }
 .userPointItem {
   padding: 8px;
+}
+.DiseOn {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  background-image: url("./Assets/dise-images.png");
+  background-size: 470px;
+  border-radius: 30px;
+}
+.dishWrapperBox {
+  position: absolute;
+  top: 220px;
+  left: 135px;
+  padding: 30px;
+  background: #fff;
+}
+.dis-1 {
+  background-position: 1px -76px;
+}
+.dis-2 {
+  background-position: -76px -76px;
+}
+.dis-3 {
+  background-position: -156px -76px;
+}
+.dis-4 {
+  background-position: -235px -76px;
+}
+.dis-5 {
+  background-position: -313px -76px;
+}
+.dis-6 {
+  background-position: -391px -76px;
 }
