@@ -44,25 +44,40 @@ export default function Dise({ users, setUsers, setPlay }) {
 
       const update = users.map((item) => {
         if (item.id === activeUser + 1) {
+          //checking more then 100 point
           if (item.point + newDise > 100) {
             return { ...item };
           }
+          //checking win
           if (item.point + newDise === 100) {
             setState({ loading: false, gameOver: true });
           }
+          //adding Point
           if (updown[item.point + newDise])
             return { ...item, point: updown[item.point + newDise] };
+          // if (updown[item.point + newDise]) {
+          //   checkSnakLadder(updown[item.point + newDise], item.id);
+          // }
           return { ...item, point: item.point + newDise };
         } else {
           return { ...item };
         }
       });
+
       //console.log("update", update);
       setUsers(update);
       if (newDise !== 6 && state.gameOver !== true) {
         setActiveUser((item) => (item + 1 + users.length) % users.length);
       }
     }, 2000);
+
+    function checkSnakLadder(point, id) {
+      console.log();
+      const newUpdate = users.map((it) =>
+        it.id === id ? { ...it, [point]: point } : it
+      );
+      setUsers(newUpdate);
+    }
   }
 
   function SwtBg(item) {
